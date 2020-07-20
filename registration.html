@@ -54,15 +54,17 @@ form {
   cursor: pointer;
 }
 
-
 </style>
+
+
 <body>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <a href='https://www.rkleague.ee/'><button class="button button1">< Tagasi</button></a>
   <h1>RKleague wingman registratsioon</h1>
   <img src="log2.png" alt="logo" width="256" height="256">
   <br><br>
 
-<form>
+<form class="form" action="/action_page.php" method="post">
   <label for="teamname" >Tiimi nimi:</label>
   <input type="text" id="teamname" name="teamname" required><br><br>
   <label for="name1">Kapten:</label>
@@ -73,9 +75,18 @@ form {
   <input type="text" id="discord" name="discord" required placeholder="Geork#7310"><br><br>
   <label for="discord">Kapteni e-mail:</label>
   <input type="text" id="discord" name="discord" required placeholder="john.doe@gmail.com"><br><br>
+  <div class="g-recaptcha" data-sitekey="6LdKe7MZAAAAAK3KfpMebRnciR6o_d5lESUYU86C"></div>
   <p style="color:red;">Turniiri osalustasu on 15 eurot tiimi kohta.<br> Tasuda saab paypal'i kaudu, pangaülekandega või sularahas.</p>
   <input type="submit" value="Saada" class="button2 button1">
 </form>
+
+<script>
+$(document).ready(function(){
+$(".form").on('submit',function(event){
+  
+});
+});
+</script>
 
 </body>
 </html>
