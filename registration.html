@@ -5,12 +5,12 @@ body {
   background-image: url('wp.jpg');
   font-family:Georgia, serif;
   text-align:center;
-  color:#00FF00
+  color:#E6E6E6
 }
 form {
   text-align:center;
   font-family:Georgia, serif;
-  color:#00FF00
+  color:#E6E6E6
 
 }
 .button {
@@ -54,6 +54,8 @@ form {
   cursor: pointer;
 }
 
+
+
 </style>
 
 
@@ -76,14 +78,14 @@ form {
   <label for="discord">Kapteni e-mail:</label>
   <input type="text" id="discord" name="discord" required placeholder="john.doe@gmail.com"><br><br>
   <div class="g-recaptcha" data-sitekey="6LdKe7MZAAAAAK3KfpMebRnciR6o_d5lESUYU86C"></div>
-  <p style="color:red;">Turniiri osalustasu on 15 eurot tiimi kohta.<br> Tasuda saab paypal'i kaudu, pangaülekandega või sularahas.</p>
+  <p style="color:red;"><b>Turniiri osalustasu on 15 eurot tiimi kohta.<br> Tasuda saab paypal'i kaudu, pangaülekandega või sularahas.</b></p>
   <input type="submit" value="Saada" class="button2 button1">
 </form>
 
 <script>
 $(document).ready(function(){
 $(".form").on('submit',function(event){
-  
+
 });
 });
 </script>
