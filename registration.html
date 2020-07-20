@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+
+
+
 <style>
 body {
   background-image: url('wp.jpg');
@@ -66,29 +69,70 @@ form {
   <img src="log2.png" alt="logo" width="256" height="256">
   <br><br>
 
-<form class="form" action="/action_page.php" method="post">
-  <label for="teamname" >Tiimi nimi:</label>
-  <input type="text" id="teamname" name="teamname" required><br><br>
+<form class="form" action="https://api.challonge.com/v1/tournaments/rkleaguewingman/participants.json" method="post" target="dummyframe">
+  <label for="participant[name]" >Tiimi nimi:</label>
+  <input type="text" id="participant[name]" name="participant[name]" required autofocus/><br>
+  <input type="hidden" id="api_key" name="api_key" value="lIHI7i5Kon7joH0BXndS714b0NYLhSfrhViRtwRl"/><br>
   <label for="name1">Kapten:</label>
-  <input type="text" id="name1" name="name1" required> &nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="text" id="name1" name="name1" required/> &nbsp;&nbsp;&nbsp;&nbsp;
   <label for="name2">Tiimi liige:</label>
-  <input type="text" id="name2" name="name2" required><br><br>
+  <input type="text" id="name2" name="name2" required/><br><br>
   <label for="discord">Kapteni discord (koos numbritega):</label>
-  <input type="text" id="discord" name="discord" required placeholder="Geork#7310"><br><br>
+  <input type="text" id="discord" name="discord" required placeholder="Geork#7310"/><br><br>
   <label for="discord">Kapteni e-mail:</label>
-  <input type="text" id="discord" name="discord" required placeholder="john.doe@gmail.com"><br><br>
+  <input type="text" id="discord" name="discord" required placeholder="john.doe@gmail.com"/><br><br>
+  <label for="file">Tiimi pilt (läheb liquipedia lehele, pole kohustuslik):</label>
+  <input type="file" id="file" name="image" accept="image/*"/>
+  <p>Suurus peab olema 512x512!</p><br><br>
   <div class="g-recaptcha" data-sitekey="6LdKe7MZAAAAAK3KfpMebRnciR6o_d5lESUYU86C"></div>
   <p style="color:red;"><b>Turniiri osalustasu on 15 eurot tiimi kohta.<br> Tasuda saab paypal'i kaudu, pangaülekandega või sularahas.</b></p>
-  <input type="submit" value="Saada" class="button2 button1">
+  <input type="submit" value="Saada" class="button2 button1" onClick="sendData()"/>
 </form>
 
-<script>
-$(document).ready(function(){
-$(".form").on('submit',function(event){
+<script type="text/javascript">
+function sendData( data ) {
+  const XHR = new XMLHttpRequest(),
+        FD  = new FormData();
 
-});
-});
+  // Push our data into our FormData object
+  for( participant[name] in data ) {
+    FD.append( participant[name], data[ name ] );
+  }
+
+  // Define what happens on successful data submission
+  XHR.addEventListener( 'load', function( event ) {
+    alert( 'Yeah! Data sent and response loaded.' );
+  } );
+
+  // Define what happens in case of error
+  XHR.addEventListener(' error', function( event ) {
+    alert( 'Oops! Something went wrong.' );
+  } );
+
+  // Set up our request
+  XHR.open( 'POST', 'https://hookb.in/RZjkq97oXnHREEj720mK' );
+
+  // Send our FormData object; HTTP headers are set automatically
+  XHR.send( FD );
+}
+
+btn.addEventListener( 'click', function()
+  { sendData( {test:'ok'} );
+} )
+
+window.location.href="https://www.rkleague.ee/t%C3%A4name";
 </script>
+
+
+<!--<script>
+  const Url='https://api.challonge.com/v1/tournaments/rkleaguewingman/participants.json'
+  const data={
+    api_key:'lIHI7i5Kon7joH0BXndS714b0NYLhSfrhViRtwRl'
+    participant[name]:participant[name]
+  }
+</script>-->
+
+<iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
 
 </body>
 </html>
