@@ -58,6 +58,16 @@ form {
   cursor: pointer;
 }
 
+/* already defined in bootstrap4 */
+.text-xs-center {
+  text-align: center;
+}
+
+.g-recaptcha {
+  display: inline-block;
+}
+
+
 
 
 </style>
@@ -85,7 +95,9 @@ form {
   <label for="file">Tiimi pilt (läheb liquipedia lehele, pole kohustuslik):</label>
   <input type="file" id="file" name="image" accept="image/*"/>
   <p>Suurus peab olema 512x512!</p><br><br>
+  <div class="text-xs-center">
   <div class="g-recaptcha" data-sitekey="6LdKe7MZAAAAAK3KfpMebRnciR6o_d5lESUYU86C"></div>
+</div>
   <p style="color:red;"><b>Turniiri osalustasu on 15 eurot tiimi kohta.<br> Tasuda saab paypal'i kaudu, pangaülekandega või sularahas.</b></p>
   <input type="submit" value="Saada" class="button2 button1"/>
 </form>
